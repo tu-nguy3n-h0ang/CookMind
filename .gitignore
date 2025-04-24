@@ -1,15 +1,94 @@
+# ====================================
+# Core Android + Jetpack Compose Setup
+# ====================================
+
+# Ignore everything first
+*
+
+# === Keep only essential project files ===
+!.gitignore
+!gradlew
+!gradlew.bat
+!gradle/
+!settings.gradle.kts
+!build.gradle.kts
+!*/build.gradle.kts
+!*/src/
+!*/libs.versions.toml
+!libs.versions.toml
+
+# If you use version catalog
+!gradle/libs.versions.toml
+
+# ================
+# Android Studio / IntelliJ IDE
+# ================
+
+# Ignore IDE folders and configs
+.idea/
 *.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
+
+# Optionally keep code style (if shared across team)
+#!.idea/codeStyles/Project.xml
+
+# Ignore specific IDE files (machine-specific)
+.idea/misc.xml
+.idea/modules.xml
+.idea/workspace.xml
+.idea/deploymentTargetSelector.xml
+.idea/gradle.xml
+.idea/kotlinc.xml
+.idea/vcs.xml
+.idea/runConfigurations.xml
+.idea/git_toolbox_blame.xml
+.idea/migrations.xml
+.idea/inspectionProfiles/
+
+# ================
+# Build output and temporary files
+# ================
+
+/build/
+*/build/
+.gradle/
 local.properties
+captures/
+output.json
+
+# === Signing info / Secrets / Keystore files (IMPORTANT) ===
+**/keystore.*
+**/*.keystore
+**/*.jks
+**/*.pem
+**/*.key
+**/*.p12
+**/*.p8
+**/google-services.json
+**/google-services.plist
+**/*.properties
+
+# ================
+# OS / Editor specific files
+# ================
+.DS_Store
+*.swp
+*.swo
+*.tmp
+*.log
+*.bak
+Thumbs.db
+
+# ================
+# Firebase / Crashlytics / Analytics
+# ================
+crashlytics-build.properties
+fabric.properties
+
+# ================
+# Kotlin-specific
+# ================
+*.kotlin_module
+
+# ================
+# Jetpack Compose specific (nothing additional needed beyond Android)
+# ================
