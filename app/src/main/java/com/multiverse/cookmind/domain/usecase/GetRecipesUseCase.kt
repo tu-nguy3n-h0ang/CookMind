@@ -9,7 +9,11 @@ import javax.inject.Inject
 class GetRecipesUseCase @Inject constructor(
     private val recipeRepository: RecipeRepository
 ) {
-    operator fun invoke(): Flow<Outcome<List<Recipe>>> {
-        return recipeRepository.getRecipes()
+    operator fun invoke(
+        query: String? = null,
+        tags: List<String>? = null,
+        mealTypes: List<String>? = null
+    ): Flow<Outcome<List<Recipe>>> {
+        return recipeRepository.getRecipes(query, tags, mealTypes)
     }
 }

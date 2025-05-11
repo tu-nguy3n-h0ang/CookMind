@@ -10,9 +10,9 @@ import javax.inject.Inject
 class DeleteRecipeUseCase @Inject constructor(
     private val recipeRepository: RecipeRepository
 ) {
-    operator fun invoke(id: Int): Flow<Outcome<Recipe>> {
+    suspend operator fun invoke(id: Int): Outcome<Unit> {
         if (id <= 0) {
-            return flowOf(Outcome.Error(null, "Recipe ID must be positive."))
+            return Outcome.Error("ID công thức không hợp lệ để xóa.")
         }
         return recipeRepository.deleteRecipe(id)
     }

@@ -8,7 +8,7 @@ data class Recipe(
     val prepTimeMinutes: Int,
     val cookTimeMinutes: Int,
     val servings: Int,
-    val difficulty: String,
+    val difficulty: Difficulty,
     val cuisine: String,
     val caloriesPerServing: Int?,
     val tag: List<Tag>,
@@ -17,4 +17,7 @@ data class Recipe(
     val rating: Double,
     val reviewCount: Int,
     val mealTypes: List<MealType>
-)
+) {
+    val totalTimeMinutes: Int
+        get() = prepTimeMinutes + cookTimeMinutes
+}

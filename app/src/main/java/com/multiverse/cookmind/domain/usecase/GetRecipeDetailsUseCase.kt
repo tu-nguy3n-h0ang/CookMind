@@ -7,14 +7,13 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
 import javax.inject.Inject
 
-class GetRecipeByIdUseCase @Inject constructor(
+class GetRecipeDetailsUseCase @Inject constructor(
     private val recipeRepository: RecipeRepository
 ) {
     operator fun invoke(id: Int): Flow<Outcome<Recipe>> {
-        if (id <= 0) { // Ví dụ một validation đơn giản trong use case
-            // Hoặc có thể throw IllegalArgumentException tùy theo cách bạn muốn xử lý lỗi
-            return flowOf(Outcome.Error(null, "Recipe ID must be positive."))
+        if (id <= 0) { // Ví dụ validation đơn giản
+            return flowOf(Outcome.Error(null, "Invalid recipe ID."))
         }
-        return recipeRepository.getRecipeById(id)
+        return recipeRepository.getRecipeDetails(id)
     }
 }
