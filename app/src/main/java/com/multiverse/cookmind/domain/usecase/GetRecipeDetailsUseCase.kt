@@ -12,7 +12,7 @@ class GetRecipeDetailsUseCase @Inject constructor(
 ) {
     operator fun invoke(id: Int): Flow<Outcome<Recipe>> {
         if (id <= 0) { // Ví dụ validation đơn giản
-            return flowOf(Outcome.Error(null, "Invalid recipe ID."))
+            return flowOf(Outcome.Error("Invalid recipe ID."))
         }
         return recipeRepository.getRecipeDetails(id)
     }
