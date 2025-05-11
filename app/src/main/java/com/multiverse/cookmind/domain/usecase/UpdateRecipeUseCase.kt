@@ -11,7 +11,6 @@ import javax.inject.Inject
 class UpdateRecipeUseCase @Inject constructor(
     private val recipeRepository: RecipeRepository
 ) {
-    // --- SỬA ĐỔI CHỮ KÝ VÀ LOGIC TRẢ VỀ ---
     suspend operator fun invoke(recipeId: Int, updatedRecipe: Recipe): Outcome<Recipe> {
         if (recipeId <= 0) {
             return Outcome.Error("ID công thức không hợp lệ để cập nhật.")
