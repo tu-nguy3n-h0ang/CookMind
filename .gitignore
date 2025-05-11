@@ -13,9 +13,10 @@
 !settings.gradle.kts
 !build.gradle.kts
 !*/build.gradle.kts
-!*/src/
+!*/src/**
 !*/libs.versions.toml
 !libs.versions.toml
+!*.kt
 
 # If you use version catalog
 !gradle/libs.versions.toml
